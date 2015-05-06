@@ -1,4 +1,4 @@
-package me.dowen.solr.analyzers;
+package xyz.dowenliu.lucene.analyzer;
 
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;

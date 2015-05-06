@@ -11,25 +11,25 @@ Apache Solr（语义）范围扩展分词过滤器。
 
 ##示例
 
-	<fieldType name="text_general" class="solr.TextField"
-		positionIncrementGap="100">
-		<analyzer type="index">
-			<tokenizer class="solr.StandardTokenizerFactory" />
-			<filter class="me.dowen.solr.analyzers.ScopeExpandTokenFilterFactory" expands="se.txt"/>
-			<filter class="solr.StopFilterFactory" ignoreCase="true"
-				words="stopwords.txt" />
-			<filter class="solr.LowerCaseFilterFactory" />
-			<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
-		</analyzer>
-		<analyzer type="query">
-			<tokenizer class="solr.StandardTokenizerFactory" />
-			<filter class="solr.StopFilterFactory" ignoreCase="true"
-				words="stopwords.txt" />
-			<filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt"
-				ignoreCase="true" expand="true" />
-			<filter class="solr.LowerCaseFilterFactory" />
-		</analyzer>
-	</fieldType>
+    <fieldType name="text_general" class="solr.TextField"
+        positionIncrementGap="100">
+        <analyzer type="index">
+            <tokenizer class="solr.StandardTokenizerFactory" />
+            <filter class="xyz.dowenliu.lucene.analyzer.ScopeExpandTokenFilterFactory" expands="se.txt"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true"
+                words="stopwords.txt" />
+            <filter class="solr.LowerCaseFilterFactory" />
+            <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="solr.StandardTokenizerFactory" />
+            <filter class="solr.StopFilterFactory" ignoreCase="true"
+                words="stopwords.txt" />
+            <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt"
+                ignoreCase="true" expand="true" />
+            <filter class="solr.LowerCaseFilterFactory" />
+        </analyzer>
+    </fieldType>
 
 ##配置项
 
@@ -38,13 +38,13 @@ Apache Solr（语义）范围扩展分词过滤器。
 指定扩展规则的配置文件名。文件通常设置在对应core的conf/下。此参数无默认值，且必需在schema fieldType声明中指定，否则分词器加载失败、对应的core无法使用。示例中指定的文件名为se.txt  
 se.txt中部分内容如下所示:
 
-	西服=>正装
-	凉拖=>鞋
-	男靴=>男鞋
-	男靴=>靴子
-	靴子=>鞋
-	男鞋=>鞋
-	...
+    西服=>正装
+    凉拖=>鞋
+    男靴=>男鞋
+    男靴=>靴子
+    靴子=>鞋
+    男鞋=>鞋
+    ...
 
 扩展规则书写规则：
 
