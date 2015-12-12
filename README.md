@@ -15,7 +15,7 @@ Apache Solr（语义）范围扩展分词过滤器。
         positionIncrementGap="100">
         <analyzer type="index">
             <tokenizer class="solr.StandardTokenizerFactory" />
-            <filter class="xyz.dowenliu.lucene.analyzer.ScopeExpandTokenFilterFactory" expands="se.txt"/>
+            <filter class="xyz.dowenwork.lucene.analyzer.ScopeExpandTokenFilterFactory" expands="se.txt"/>
             <filter class="solr.StopFilterFactory" ignoreCase="true"
                 words="stopwords.txt" />
             <filter class="solr.LowerCaseFilterFactory" />
